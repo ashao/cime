@@ -72,7 +72,7 @@ def launch_cluster_orc(exp, db_hosts, port):
     print(f"Starting Orchestrator on hosts: {db_hosts}")
     # batch = False to launch on existing allocation
     db = PBSOrchestrator(port=port, db_nodes=len(db_hosts), batch=False,
-                          run_command="mpirun", hosts=db_hosts)
+                          run_command="mpirun", hosts=db_hosts, interface='ib0')
 
     # generate directories for output files
     # pass in objects to make dirs for
